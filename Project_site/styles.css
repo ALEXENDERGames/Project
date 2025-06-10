@@ -1,0 +1,884 @@
+/* Траурные CSS переменные */
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #8B0000;
+    --tertiary-color: #1A1A1A; /* Почти черный */
+    --accent-color: #8B0000; /* Темно-красный для акцентов */
+    --flame-color: #4169E1; /* Синее пламя для траурности */
+    --background-gradient: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--background-gradient);
+    color: #f5f5f5;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Добавляем эффект тумана */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    background: var(--glass-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+header:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 15px 30px;
+    background: rgba(139, 0, 0, 0.7);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    margin: 0 10px;
+    outline: none;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.tab:hover::before {
+    left: 100%;
+}
+
+.tab:hover {
+    background: rgba(178, 34, 34, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tab.active {
+    background: rgba(255, 215, 0, 0.9);
+    color: #8B0000;
+    border: 2px solid #8B0000;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.hall {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    min-height: 600px;
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.hall.active {
+    display: flex;
+}
+
+.hall-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.hall-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.candlesticks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.candle-item {
+    width: 65px;
+    height: 65px;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 5px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.candle-item:hover {
+    background: rgba(139, 69, 19, 0.2);
+    transform: translateY(-2px);
+}
+
+.candlestick {
+    width: 250px;
+    height: 375px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.candlestick:hover {
+    transform: scale(1.05);
+}
+
+.candlestick.has-candle {
+    background: url('Подствечники/Подсвечник_со_свечой.png') center/contain no-repeat;
+}
+
+.candlestick.active {
+    filter: brightness(1.2);
+    animation: candle-flame 2s infinite;
+}
+
+.candlestick img {
+    width: 250px;
+    height: 375px;
+    object-fit: contain;
+}
+
+.candle {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 90px;
+    z-index: 3;
+}
+
+.candle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.candle-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.candle-info .subject {
+    color: #8B4513;
+    font-size: 9px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.candle-info .count {
+    color: #8B4513;
+    font-weight: bold;
+    font-size: 10px;
+    background: rgba(139, 69, 19, 0.1);
+    padding: 1px 3px;
+    border-radius: 3px;
+    min-width: 12px;
+    text-align: center;
+}
+
+.counter {
+    background: var(--glass-bg);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 40px;
+    max-width: 500px;
+    margin: 40px auto 0;
+    border: 1px solid var(--glass-border);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.counter:hover {
+    transform: translateY(-5px);
+}
+
+.counter-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.total-count {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FF6347;
+    text-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px;
+    background: var(--glass-bg);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.candle-added {
+    animation: candlePulse 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes candlePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.count.updated {
+    animation: countPulse 0.5s ease;
+}
+
+@keyframes countPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .candlesticks-container {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hall-title {
+        font-size: 2rem;
+    }
+
+    .tab {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .candlestick {
+        width: 400px;
+        height: 600px;
+    }
+}
+
+/* Дополнительные траурные эффекты */
+.hall::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 139, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 10px;
+}
+
+/* Стили для хранилища свечей */
+.candle-storage {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 370px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #8B4513;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.storage-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #8B4513;
+}
+
+.storage-header h3 {
+    margin: 0;
+    color: #8B4513;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.storage-count {
+    color: #8B4513;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.storage-container {
+    flex: 1;
+    width: 100%;
+    border: 2px dashed #8B4513;
+    border-radius: 5px;
+    padding: 8px;
+    background: rgba(139, 69, 19, 0.05);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    align-content: center;
+    justify-items: center;
+}
+
+/* Стили для элементов свечей в хранилище */
+.candle-item {
+    width: 85px;
+    height: 85px;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 5px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.candle-image {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.candle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.candle-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2px;
+}
+
+.candle-info .subject {
+    color: #8B4513;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.candle-info .count {
+    color: #8B4513;
+    font-weight: bold;
+    font-size: 12px;
+    background: rgba(139, 69, 19, 0.1);
+    padding: 1px 4px;
+    border-radius: 3px;
+    min-width: 14px;
+    text-align: center;
+}
+
+/* Стили для магазина */
+.shop-container {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.shop-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.shop-info h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.shop-info p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.shop-candles h3 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.shop-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.shop-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.shop-item:hover {
+    transform: translateY(-5px);
+}
+
+.shop-candle-preview {
+    width: 150px;
+    height: 225px;
+    margin: 0 auto 20px;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.shop-item-info {
+    color: #fff;
+}
+
+.shop-item-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.shop-item-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #FF6347;
+}
+
+.buy-candle-btn {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buy-candle-btn:hover {
+    background: #FFC107;
+    transform: scale(1.05);
+}
+
+.buy-candle-btn:active {
+    transform: scale(0.95);
+}
+
+/* Стили для уведомлений */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--glass-bg);
+    color: var(--primary-color);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+/* Стили для зоны перетаскивания */
+.drop-zone {
+    border: 2px dashed var(--primary-color) !important;
+    background: rgba(255, 215, 0, 0.1) !important;
+}
+
+.drop-zone::before {
+    content: 'Отпустите здесь свечу';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Разные варианты подсвечников для разных предметов */
+.candlestick[data-subject="Математика"] {
+    background: url('подсветчники/Красны.png') center/200% no-repeat;
+    transform: rotate(-2deg);
+}
+
+.candlestick[data-subject="Физика"] {
+    background: url('подсветчники/СИний.png') center/200% no-repeat;
+    transform: rotate(3deg);
+}
+
+.candlestick[data-subject="Химия"] {
+    background: url('подсветчники/Изумрудный.png') center/200% no-repeat;
+    transform: rotate(-1deg);
+}
+
+.candlestick[data-subject="Биология"] {
+    background: url('подсветчники/Легендарочка.png') center/200% no-repeat;
+    transform: rotate(4deg);
+}
+
+.candlestick[data-subject="Астрономия"] {
+    background: url('подсветчники/Фиолетовый.png') center/200% no-repeat;
+    transform: rotate(-3deg);
+}
+
+.candlestick[data-subject="География"] {
+    background: url('подсветчники/Оранжевый.png') center/200% no-repeat;
+    transform: rotate(2deg);
+}
+
+.candlestick[data-subject="Литература"] {
+    background: url('подсветчники/РАРНЫЙ.png') center/200% no-repeat;
+    transform: rotate(-4deg);
+}
+
+.candlestick[data-subject="История"] {
+    background: url('подсветчники/АФЫАФ.png') center/200% no-repeat;
+    transform: rotate(1deg);
+}
+
+.candlestick[data-subject="Иностранный язык"] {
+    background: url('подсветчники/ЫФППФЦКЕе.png') center/200% no-repeat;
+    transform: rotate(-2deg);
+}
+
+.candlestick[data-subject="Программирование"],
+.candlestick[data-subject="Информатика"],
+.candlestick[data-subject="Дизайн"] {
+    transform: rotate(0deg);
+}
+
+.candlestick[data-subject="Черчение"] {
+    background: url('подсветчники/Обычный.png') center/200% no-repeat;
+    transform: rotate(2deg);
+}
+
+.price {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.buy-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}
+
+.buy-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Стили для кнопки пополнения баланса */
+button[onclick*="addBalance"] {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+button[onclick*="addBalance"]:hover {
+    background-color: #1976D2;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#paymentWidget {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pay-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.pay-button:hover {
+    background-color: #45a049;
+}
+
+.payment-widget {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.candle-on-candlestick {
+    position: absolute;
+    bottom: 190px;
+    left: 51%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 150px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation: candleGlow 1s infinite alternate;
+}
+
+@keyframes candleGlow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7))
+               drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))
+               drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    }
+    100% {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))
+               drop-shadow(0 0 15px rgba(255, 255, 255, 0.7))
+               drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    }
+}
+
+.candle-on-candlestick.burning {
+    animation: candleGlow 1s infinite alternate, fadeOut 60s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Стили для элементов подсвечников в залах */
+.hall .candle-item {
+    width: auto;
+    height: auto;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.hall .candle-info {
+    text-align: center;
+}
+
+.hall .candle-info .subject {
+    font-size: 16px;
+    color: #8B4513;
+    margin-bottom: 5px;
+}
+
+.hall .candle-info .count {
+    font-size: 14px;
+    color: #666;
+} 

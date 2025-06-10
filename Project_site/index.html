@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Храм Успехов в Учёбе</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Коробка для хранения купленных свечей -->
+    <div class="candle-storage">
+        <div class="storage-header">
+            <h3><i class="fas fa-box"></i> Коробка свечей</h3>
+            <div class="storage-count">Купленных: <span id="storage-count">0</span></div>
+        </div>
+        <div class="storage-container" id="storage-container">
+            <div class="candle-item" data-candle-type="red">
+                <div class="candle-image">
+                    <img src="Свечи/White Candle Flame Illustration PNG _ TopPNG.png" alt="Красная свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Красная свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="blue">
+                <div class="candle-image">
+                    <img src="Свечи/Blue.png" alt="Синяя свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Синяя свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="green">
+                <div class="candle-image">
+                    <img src="Свечи/miphik.png" alt="Зеленая свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Зеленая свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="yellow">
+                <div class="candle-image">
+                    <img src="Свечи/Gold.png" alt="Желтая свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Желтая свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="purple">
+                <div class="candle-image">
+                    <img src="Свечи/miphik.png" alt="Фиолетовая свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Фиолетовая свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="orange">
+                <div class="candle-image">
+                    <img src="Свечи/Gold.png" alt="Оранжевая свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Оранжевая свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="pink">
+                <div class="candle-image">
+                    <img src="Свечи/Pink.png" alt="Розовая свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Розовая свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="emerald">
+                <div class="candle-image">
+                    <img src="Свечи/miphik.png" alt="Изумрудная свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Изумрудная свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+            <div class="candle-item" data-candle-type="legendary">
+                <div class="candle-image">
+                    <img src="Свечи/Rare.png" alt="Легендарная свеча">
+                </div>
+                <div class="candle-info">
+                    <div class="subject">Легендарная свеча</div>
+                    <div class="count">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-church"></i> Храм Успехов в Учёбе</h1>
+            <p class="subtitle">Поставьте виртуальную свечу за успешную сдачу экзаменов и зачётов. Выберите зал и предмет, за который вы хотите помолиться!</p>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab active" data-hall="main-hall">Главный Зал</button>
+            <button class="tab" data-hall="science-hall">Зал Наук</button>
+            <button class="tab" data-hall="humanities-hall">Зал Гуманитарных Наук</button>
+            <button class="tab" data-hall="tech-hall">Технический Зал</button>
+            <button class="tab" data-hall="shop-hall">Магазин Свечей</button>
+        </div>
+        
+        <div class="hall active" id="main-hall">
+            <h2 class="hall-title"><i class="fas fa-star"></i> Главный Зал</h2>
+            <div class="main-hall">
+                <div class="candlesticks-container">
+                    <div class="candle-item">
+                        <div class="candlestick" id="stand-1" data-subject="Главный Подсвечник 1">
+                            <img src="Подствечники/1.png" alt="Главный Подсвечник 1">
+                        </div>
+                        <div class="candle-info">
+                            <div class="subject">Главный Подсвечник 1</div>
+                            <div class="count">0</div>
+                        </div>
+                    </div>
+
+                    <div class="candle-item">
+                        <div class="candlestick" id="stand-2" data-subject="Главный Подсвечник 2">
+                            <img src="Подствечники/2.png" alt="Главный Подсвечник 2">
+                        </div>
+                        <div class="candle-info">
+                            <div class="subject">Главный Подсвечник 2</div>
+                            <div class="count">0</div>
+                        </div>
+                    </div>
+
+                    <div class="candle-item">
+                        <div class="candlestick" id="stand-3" data-subject="Главный Подсвечник 3">
+                            <img src="Подствечники/3.png" alt="Главный Подсвечник 3">
+                        </div>
+                        <div class="candle-info">
+                            <div class="subject">Главный Подсвечник 3</div>
+                            <div class="count">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hall" id="science-hall">
+            <h2 class="hall-title"><i class="fas fa-flask"></i> Зал Наук</h2>
+            <div class="candlesticks-container">
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-math" data-subject="Математика">
+                        <img src="Подствечники/1.png" alt="Подсвечник Математика">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Математика</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+                
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-physics" data-subject="Физика">
+                        <img src="Подствечники/2.png" alt="Подсвечник Физика">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Физика</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+                
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-chemistry" data-subject="Химия">
+                        <img src="Подствечники/3.png" alt="Подсвечник Химия">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Химия</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hall" id="humanities-hall">
+            <h2 class="hall-title"><i class="fas fa-book"></i> Зал Гуманитарных Наук</h2>
+            <div class="candlesticks-container">
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-literature" data-subject="Литература">
+                        <img src="Подствечники/7.png" alt="Подсвечник Литература">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Литература</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+                
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-history" data-subject="История">
+                        <img src="Подствечники/8.png" alt="Подсвечник История">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">История</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+                
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-foreign" data-subject="Иностранный язык">
+                        <img src="Подствечники/9.png" alt="Подсвечник Иностранный язык">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Иностранный язык</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hall" id="tech-hall">
+            <h2 class="hall-title"><i class="fas fa-laptop-code"></i> Технический Зал</h2>
+            <div class="candlesticks-container">
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-programming" data-subject="Программирование">
+                        <img src="Подствечники/4.png" alt="Подсвечник Программирование">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Программирование</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+                
+                <div class="candle-item">
+                    <div class="candlestick" id="stand-drawing" data-subject="Черчение">
+                        <img src="Подствечники/5.png" alt="Подсвечник Черчение">
+                    </div>
+                    <div class="candle-info">
+                        <div class="subject">Черчение</div>
+                        <div class="count">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Добавляем новый зал - Магазин Свечей -->
+        <div class="hall" id="shop-hall">
+            <h2 class="hall-title"><i class="fas fa-store"></i> Магазин Свечей</h2>
+            
+            <div class="shop-container">
+                <div class="shop-info">
+                    <h3>Пожертвования на развитие храма</h3>
+                    <p>Ваши пожертвования помогают поддерживать храм и покупать новые свечи для молитв.</p>
+                </div>
+                
+                <div class="shop-candles">
+                    <h3>Доступные свечи для покупки</h3>
+                    <div class="shop-items">
+                        <div class="shop-item" data-candle-type="red" data-price="50">
+                            <div class="shop-candle-preview" style="background: url('Свечи/White Candle Flame Illustration PNG _ TopPNG.png') center/150% no-repeat;"></div>
+                            <div class="shop-item-info">
+                                <div class="shop-item-name">Красная Свеча</div>
+                                <div class="shop-item-price">50₽</div>
+                                <button class="buy-candle-btn" onclick="buyCandle('red', 50)">Купить</button>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-item" data-candle-type="blue" data-price="60">
+                            <div class="shop-candle-preview" style="background: url('Свечи/Blue.png') center/150% no-repeat;"></div>
+                            <div class="shop-item-info">
+                                <div class="shop-item-name">Синяя Свеча</div>
+                                <div class="shop-item-price">60₽</div>
+                                <button class="buy-candle-btn" onclick="buyCandle('blue', 60)">Купить</button>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-item" data-candle-type="emerald" data-price="80">
+                            <div class="shop-candle-preview" style="background: url('Свечи/Pink.png') center/150% no-repeat;"></div>
+                            <div class="shop-item-info">
+                                <div class="shop-item-name">Изумрудная Свеча</div>
+                                <div class="shop-item-price">80₽</div>
+                                <button class="buy-candle-btn" onclick="buyCandle('emerald', 80)">Купить</button>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-item" data-candle-type="legendary" data-price="100">
+                            <div class="shop-candle-preview" style="background: url('Свечи/Gold.png') center/150% no-repeat;"></div>
+                            <div class="shop-item-info">
+                                <div class="shop-item-name">Легендарная Свеча</div>
+                                <div class="shop-item-price">100₽</div>
+                                <button class="buy-candle-btn" onclick="buyCandle('legendary', 100)">Купить</button>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-item" data-candle-type="rare" data-price="200">
+                            <div class="shop-candle-preview" style="background: url('Свечи/Rare.png') center/150% no-repeat;"></div>
+                            <div class="shop-item-info">
+                                <div class="shop-item-name">Редкая Свеча</div>
+                                <div class="shop-item-price">200₽</div>
+                                <button class="buy-candle-btn" onclick="buyCandle('rare', 200)">Купить</button>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-item" data-candle-type="mystic" data-price="500">
+                            <div class="shop-candle-preview" style="background: url('Свечи/miphik.png') center/150% no-repeat;"></div>
+                            <div class="shop-item-info">
+                                <div class="shop-item-name">Мистическая Свеча</div>
+                                <div class="shop-item-price">500₽</div>
+                                <button class="buy-candle-btn" onclick="buyCandle('mystic', 500)">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="counter">
+            <div class="counter-title">Всего поставлено свечей:</div>
+            <div class="total-count">0</div>
+        </div>
+        
+        <footer>
+            <p>Виртуальный Храм Успехов в Учёбе | Поставьте свечу за успешную сдачу экзаменов!</p>
+            <p>Каждая свеча - это ваша молитва за успех в учёбе. Верьте в свои силы!</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
